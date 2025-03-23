@@ -1,9 +1,13 @@
-import classes from './chooseMonth.module.css'
+import React from 'react';
+import classes from './chooseMonth.module.css';
 
+interface ChooseMonthProps {
+  thisMonth: string;
+  valueDay: number;
+  year: number;
+}
 
-
-export const ChooseMonth = ({thisMonth, valueDay, year}) => {
-
+export const ChooseMonth: React.FC<ChooseMonthProps> = ({ thisMonth, valueDay, year }) => {
   return (
     <div className={classes.panel}>
       <div className={classes.month}>
@@ -16,5 +20,5 @@ export const ChooseMonth = ({thisMonth, valueDay, year}) => {
         {year}
       </div>
     </div>
-  )
+  );
 };
