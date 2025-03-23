@@ -1,0 +1,10 @@
+
+.listOfMonths {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  height: 200px;
+  width: 500px;
+  background-color: #1b1b1b;
+  padding: 50px 50px;
+  font-size: 38px;
+}
