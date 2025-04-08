@@ -1,0 +1,12 @@
+.panel {
+  margin: 0;
+  padding: 0;
+  display: block;
+  min-width: 230px;
+}
+
+.month {
+  margin: auto ;
+  margin-bottom: 30px;
+}
+

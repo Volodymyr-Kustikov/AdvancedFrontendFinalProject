@@ -1,0 +1,11 @@
+.table {
+  font-size: 18px;
+}
+
+.weekday {
+  text-decoration: underline wavy red;
+}
+
+.numbers {
+  text-align: center;
+}

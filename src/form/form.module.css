@@ -1,0 +1,35 @@
+.form {
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  padding: 20px;
+}
+
+.input {
+  background-color: rgb(12, 12, 12);
+  padding: 10px;
+  border: none;
+
+  color: red;
+}
+
+.inputError {
+  border: 2px rgb(255, 0, 0) solid;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.button {
+  font-size: 24px;
+  background-color: inherit;
+  color: red;
+  border: none;
+  padding: 5px;
+  text-wrap: nowrap;
+}
+
+.error {
+  color: red;
+}
