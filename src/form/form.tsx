@@ -1,8 +1,10 @@
 import React from 'react';
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import classnames from 'classnames';
 import classes from './form.module.css';
-import { Post } from '../App/types';
+import { Post } from '../App/businessLogic/types';
 
 interface FormProps {
   valueDay: number;
@@ -12,10 +14,13 @@ interface FormProps {
   setPosts: React.Dispatch<React.SetStateAction<Post[]>>;
 }
 
-interface FormInputs {
-  title: string;
-  note: string;
-}
+// 🧠 Zod-схема
+const schema = z.object({
+  title: z.string().min(1, 'Write'),
+  note: z.string().min(1, 'Write!')
+});
+
+type FormInputs = z.infer<typeof schema>;
 
 export const Form: React.FC<FormProps> = ({
   valueDay,
@@ -24,17 +29,22 @@ export const Form: React.FC<FormProps> = ({
   posts,
   setPosts
 }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<FormInputs>({
+    resolver: zodResolver(schema),
+    mode: 'onBlur'
+  });
 
   const handleSubmitting: SubmitHandler<FormInputs> = (data, event) => {
-    if (event) {
-      event.preventDefault();
-    }
+    event?.preventDefault();
 
     const newPost: Post = {
       title: data.title,
       note: data.note,
-      date: `${valueDay}.${currentMonth}.${year}`,
+      date: `${valueDay}.${currentMonth}.${year}`
     };
 
     setPosts([...posts, newPost]);
@@ -42,35 +52,31 @@ export const Form: React.FC<FormProps> = ({
 
   return (
     <form className={classes.form}>
-      <input 
-        className={classnames(
-          classes.input, {
+      <input
+        className={classnames(classes.input, {
           [classes.inputError]: errors.title
         })}
-        {...register('title', {
-          required: 'Write'
-        })} 
-        type='text'  
+        {...register('title')}
+        type="text"
       />
 
-      <input 
-        className={classnames(
-          classes.input, {
+      <input
+        className={classnames(classes.input, {
           [classes.inputError]: errors.note
         })}
-        {...register('note', {
-          required: 'Write!'
-        })} 
-        type='text'
+        {...register('note')}
+        type="text"
       />
 
       {errors?.note && (
-        <div className={classes.error}>
-          {errors.note.message}
-        </div>
+        <div className={classes.error}>{errors.note.message}</div>
       )}
 
-      <button type='submit' className={classes.button} onClick={handleSubmit(handleSubmitting)}>
+      <button
+        type="submit"
+        className={classes.button}
+        onClick={handleSubmit(handleSubmitting)}
+      >
         try to click
       </button>
     </form>

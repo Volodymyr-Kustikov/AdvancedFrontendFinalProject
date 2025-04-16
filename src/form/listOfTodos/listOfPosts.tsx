@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './listOfPosts.module.css';
-import { Post } from '../../App/types.ts';
+import { Post } from '../../App/businessLogic/types';
 
 interface ListOfPostsProps {
   posts: Post[];

@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './weekdaysSchedule.module.css';
-import { Month } from '../../App/types';
+import { Month } from '../../App/businessLogic/types';
 
 interface WeekdaysProps {
   months: Month[];

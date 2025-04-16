@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './listOfMonth.module.css';
 import { ChooseMonth } from './chooseMonth.tsx';
 import { Weekdays } from './weekdays/weekdaysSchedule.tsx';
-import { Month } from '../App/types';
+import { Month } from '../App/businessLogic/types';
 
 interface ListOfMonthsProps {
   months: Month[];

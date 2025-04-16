@@ -1,5 +1,5 @@
 import { Month, DayInfo } from './types';
-import monthsData from './months.json';
+import monthsData from '../months.json';
 
 export const arrOfLastIndexes: number[] = [];
 export const currentYear = new Date().getFullYear();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { CalendarMatrix } from './calendarMatrix';
-import { Month } from './types';
+import { Month } from './businessLogic/types.ts';
 
 describe('CalendarMatrix', () => {
   const testMonth: Month = { name: 'January', days: 31 };

@@ -1,27 +1,20 @@
 import React, { useState, Suspense } from 'react';
 import classes from './App.module.css';
 
-// addons for three-js
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-
-// 3d models
-import { HalloweenPumpkin } from './PumpkinModel.jsx';
-import ModelSnowman from './Snowman.jsx';
 
 // Components
-import { Arrows } from '../arrows/arrows.tsx';
-import { Advice } from '../advice/advice.tsx';
-import { ListOfMonths } from '../listOfMonths/listOfMonth.tsx';
-import { Form } from '../form/form.tsx';
-import { Posts } from '../posts/posts.tsx';
+import { Arrows } from '../arrows/arrows';
+import { Advice } from '../advice/advice';
+import { ListOfMonths } from '../listOfMonths/listOfMonth';
+import { Form } from '../form/form';
+import { Posts } from '../posts/posts';
 
 // Types
-import { Post, Month } from './types.ts';
+import { Post, Month } from './businessLogic/types';
 
 // Custom hooks
-import { useCalendar } from './useOfCalendar.ts';
-import { CalendarMatrix } from './calendarMatrix.tsx';
+import { useCalendar } from './businessLogic/useOfCalendar';
+import { CalendarMatrix } from './businessLogic/calendarMatrix';
 
 interface ListOfMonthsProps {
   months: Month[];
@@ -72,6 +65,8 @@ const App: React.FC = () => {
             setValue={setValue} 
             nextMonth={nextMonth.name} 
             months={months} 
+            day={valueDay}
+            
           />
         </div>
       </div>
@@ -112,13 +107,6 @@ const App: React.FC = () => {
         </div>
       </div>
       
-      <Canvas style={{ height: '300px', width: '100%' }}>
-        <ambientLight intensity={5} />
-        <OrbitControls />
-        <Suspense fallback={null}>
-          <ModelSnowman scale={0.5} />
-        </Suspense>
-      </Canvas>
     </div>
   );
 };

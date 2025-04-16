@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './advice.module.css';
-import { Month } from '../App/types';
+import { Month } from '../App/businessLogic/types';
 
 interface AdviceProps {
   value: number;

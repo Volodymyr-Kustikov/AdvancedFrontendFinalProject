@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { Month } from './types.ts';
+import { Month } from './types.js';
 import { calculatePreviousDays, calculateNextDays } from './utils.ts';
 import classes from './App.module.css';
 
