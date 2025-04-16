@@ -29,3 +29,21 @@
   height: inherit;
 }
 
+@media (max-width: 480px){
+  .arrows {
+    display: none;
+  }
+
+  .advice{
+    margin-left: 100px;
+  }
+
+  .main {
+    left:0px;
+    display: block;
+  }
+
+  .form{
+    display: block;
+  }
+}

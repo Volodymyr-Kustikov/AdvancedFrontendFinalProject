@@ -10,3 +10,8 @@
   margin-bottom: 30px;
 }
 
+@media (max-width:480px) {
+  .panel{
+    min-width: 115px;
+  }
+}

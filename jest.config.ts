@@ -7,8 +7,11 @@ const config: Config = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
-  testMatch: ['**/__tests__/**/*.test.(ts|tsx)'],
+  testMatch: ['**/__tests__/**/*.(test|spec).(ts|tsx)'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
 };
 
 export default config;
