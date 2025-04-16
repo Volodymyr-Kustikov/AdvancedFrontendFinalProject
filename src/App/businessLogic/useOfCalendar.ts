@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Month, DayInfo } from './types';
-import { currentYear, arrOfLastIndexes } from './utils.ts';
+import { currentYear, arrOfLastIndexes } from './utils';
 
-import monthsData from './months.json';
-import weekdaysData from '../listOfMonths/weekdays/weekdays.json';
+import monthsData from '../months.json';
+import weekdaysData from '../../listOfMonths/weekdays/weekdays.json';
 
 export function useCalendar() {
   const date = new Date();

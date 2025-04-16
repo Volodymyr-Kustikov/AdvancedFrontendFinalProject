@@ -1,8 +1,9 @@
 import React from 'react';
 import classes from './listOfMonth.module.css';
-import { ChooseMonth } from './chooseMonth.tsx';
-import { Weekdays } from './weekdays/weekdaysSchedule.tsx';
+import { ChooseMonth } from './chooseMonth';
+import { Weekdays } from './weekdays/weekdaysSchedule';
 import { Month } from '../App/businessLogic/types';
+import { JSX } from 'react';
 
 interface ListOfMonthsProps {
   months: Month[];

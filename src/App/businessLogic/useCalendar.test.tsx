@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react';
-import { useCalendar } from './businessLogic/useOfCalendar.ts';
+import { useCalendar } from './useOfCalendar';
+import { expect } from '@jest/globals'
 
 describe('useCalendar hook', () => {
   test('initializes with current date', () => {

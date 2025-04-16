@@ -1,28 +1,35 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",     // для React 17+
+    "lib": ["dom", "esnext"],
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "jsx": "react-jsx",
     "types": ["cypress", "node"],
+    "types": ["react", "react-dom"],
     "resolveJsonModule": true,
-    "baseUrl": ".",  // Устанавливает базовый каталог для разрешения путей
+    "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"], // Пример алиасов для путей
-      "@utils/*": ["src/utils/*"] // Пример алиасов для утилит
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"]
     },
-    "skipLibCheck": true, // Пропуск проверки типов в библиотеках для ускорения компиляции
-    "noImplicitAny": true, // Запрещает использование неявного типа any
-    "declaration": true, // Генерирует .d.ts файлы для вашего кода (можно удалить, если не нужно)
-    "allowJs": true // Разрешает компиляцию JavaScript файлов, если нужно
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist",
+    "sourceMap": true
   },
   "include": [
     "src", 
     "cypress"
-  ],
+, "declarations.d.ts"  ],
   "exclude": [
-    "node_modules" // Обеспечивает, чтобы папка node_modules не была включена в компиляцию
+    "node_modules",
+    "dist"
   ]
 }
