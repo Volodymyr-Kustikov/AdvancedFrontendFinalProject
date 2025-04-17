@@ -1,7 +1,5 @@
 import React, { useState, Suspense } from 'react';
 import classes from './App.module.css';
-
-
 // Components
 import { Arrows } from '../arrows/arrows';
 import { Advice } from '../advice/advice';
@@ -46,7 +44,7 @@ const App: React.FC = () => {
   } = useCalendar();
   
   const [posts, setPosts] = useState<Post[]>([]);
-
+  console.log('classes:', classes);
   return (
     <div className={classes.frame}>
       <div className={classes.navigation}>

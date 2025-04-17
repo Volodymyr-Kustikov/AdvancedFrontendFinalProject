@@ -6,18 +6,14 @@ export function HalloweenPumpkin(props) {
   const groupRef = useRef();
   const { nodes, materials } = useGLTF('/scene.gltf');
   
-  // Пример простой анимации с использованием useFrame
   useFrame((state) => {
     if (groupRef.current) {
-      // Постепенное вращение
       groupRef.current.rotation.y += 0.005;
       
-      // Медленное приближение к пользователю
       if (groupRef.current.position.z < 0) {
         groupRef.current.position.z += 0.03;
       }
       
-      // Плавное увеличение размера
       if (groupRef.current.scale.x < 1.2) {
         groupRef.current.scale.x += 0.01;
         groupRef.current.scale.y += 0.01;
@@ -28,12 +24,10 @@ export function HalloweenPumpkin(props) {
   
   return (
     <>
-      {/* Освещение */}
       <directionalLight position={[5, 5, 5]} intensity={1.5} color="#ff7700" castShadow />
       <pointLight position={[0, 0, 2]} intensity={2} color="#ff4500" distance={10} />
       <ambientLight intensity={0.8} color="#ffebcd" />
       
-      {/* Тыква */}
       <group 
         ref={groupRef} 
         {...props} 

@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { Month } from './types.js';
 import { calculatePreviousDays, calculateNextDays } from './utils';
-import classes from './App.module.css';
+import classes from '../App.module.css';
 
 interface DaysMatrixProps {
   monthDays: number;

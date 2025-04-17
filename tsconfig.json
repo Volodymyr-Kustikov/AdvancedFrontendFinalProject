@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "react",     // для React 17+
+    "jsxImportSource": "react",     
     "lib": ["dom", "esnext"],
     "target": "ESNext",
     "module": "ESNext",

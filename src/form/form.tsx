@@ -14,7 +14,7 @@ interface FormProps {
   setPosts: React.Dispatch<React.SetStateAction<Post[]>>;
 }
 
-// 🧠 Zod-схема
+// Zod-схема
 const schema = z.object({
   title: z.string().min(1, 'Write'),
   note: z.string().min(1, 'Write!')
