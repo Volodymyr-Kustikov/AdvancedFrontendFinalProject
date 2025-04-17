@@ -503,6 +503,11 @@ module.exports = function (webpackEnv) {
             //   }),
             // },
             {
+              test: /\.css$/,
+              exclude: /\.module.css$/,
+              use: ['css-loader']
+            },
+            {
               test: /\.module.css$/,
               use:
                 [
