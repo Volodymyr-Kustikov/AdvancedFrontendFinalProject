@@ -1,11 +1,20 @@
 import { useState } from 'react';
 import { Month, DayInfo } from './types';
 import { currentYear, arrOfLastIndexes } from './utils';
+import { useDispatch, useSelector } from "react-redux";
 
 import monthsData from '../months.json';
 import weekdaysData from '../../listOfMonths/weekdays/weekdays.json';
 
+interface RootState {
+  month: string;
+}
+
 export function useCalendar() {
+  const dispatch = useDispatch();
+  const month = useSelector((state: RootState) => state.month)
+
+
   const date = new Date();
   const [valueDay, setValueDay] = useState<number>(date.getDate());
   const [year, setYear] = useState<number>(currentYear);

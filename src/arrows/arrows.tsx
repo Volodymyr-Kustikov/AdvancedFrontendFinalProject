@@ -1,9 +1,10 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import classes from './arrows.module.css';
 import { Month } from '../App/businessLogic/types';
 import { HalloweenPumpkin } from '../App/PumpkinModel';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import { useDispatch, useSelector } from "react-redux";
 
 interface ArrowsProps {
   value: number;
@@ -13,17 +14,18 @@ interface ArrowsProps {
   day: number;
 }
 
+interface RootState {
+  month: number;
+}
+
 export const Arrows: React.FC<ArrowsProps> = ({ value, setValue, nextMonth, months, day }) => {
-  const handleArrowClick = (increment: number): void => {
-    let theNumber = value + increment;
-    if (theNumber >= 12) {
-      setValue(0);
-    } else if (theNumber < 0) {
-      setValue(11);
-    } else {
-      setValue(theNumber);
-    }
-  };
+  const dispatch = useDispatch();
+  const month = useSelector((state: RootState) => state.month)
+
+
+  useEffect(() => {
+    setValue(month);
+  }, [month])
 
   console.log("Arrows rendering with:", { day, value, dayType: typeof day, valueType: typeof value });
 
@@ -50,10 +52,10 @@ export const Arrows: React.FC<ArrowsProps> = ({ value, setValue, nextMonth, mont
         </div>
       ) : (
         <div className={classes.container}>
-          <a className={classes.arrow} onClick={() => handleArrowClick(-1)}>
+          <a className={classes.arrow} onClick={() => dispatch({type:"DECREMENT"})}>
             <div className={`${classes.eye} ${classes.eye1}`}></div>
           </a>
-          <a className={classes.arrow} onClick={() => handleArrowClick(1)}>
+          <a className={classes.arrow} onClick={() => dispatch({type:"INCREMENT"})}>
             <div className={`${classes.eye} ${classes.eye2}`}></div>
           </a>
           <div className={classes.blink}></div>
